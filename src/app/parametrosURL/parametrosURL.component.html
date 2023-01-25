@@ -1,0 +1,9 @@
+<div *ngIf ="parametro">
+	El parámetro de la URL es: {{parametro}}
+	<br>
+	<button (click)="redireccion2()">Ir a la página sin parámetros</button>
+</div>
+
+<div *ngIf ="!parametro">
+	<button (click)="redireccion()">Ir a la página con parámetro en su URL</button>
+</div>

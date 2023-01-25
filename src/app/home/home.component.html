@@ -1,0 +1,18 @@
+<h2>La fecha de hoy es: {{fecha}}</h2> 
+<h2>La fecha de hoy es: {{fecha | date:'dd/MM/yyyy'}}</h2> 
+<h2>La fecha todo minuscula: {{fecha | date:'fullDate' | lowercase}}</h2> 
+<h2>La fecha todo mayuscula: {{fecha | date:'fullDate' | uppercase}}</h2> 
+<br>
+<h3>{{aviso}}</h3>
+La variable que del servicio: <h3>{{varService}}</h3>
+<br>
+<input type="text"[(ngModel)]="prenda_a_guardar"><button (click)="guardarRopa()">Añadir Prenda</button>
+<p *ngIf="prenda_a_guardar">La prenda a guardar es: </p> <strong>{{prenda_a_guardar}}</strong>
+
+<h3>Listado de prendas de ropa del Array: </h3>
+<ul>
+	<strong><li *ngFor="let prenda of listado_ropa; let i = index">{{i+1}} - {{prenda}}  <a (click)="eliminarRopa(i)"> -  Eliminar</a></li></strong>
+</ul>
+
+<!-- En ésta sección se utiliza la PIPE personalizada para multiplicar, la pipe se llama CONVERSOR y es la que se utiliza -->
+{{5 | conversor: 7}}

@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-12">
+				<h3>{{titulo}}</h3>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="col-md-12" *ngIf="administrador; else noAdmin" > <!-- Se usa el nombre de la sección en el ng-template para usarlo como ELSE -->
+				<p>Eres el administrador de la webApp</p>
+				<button (click)="cambiar(false)">Cambiar booleano</button>
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-6" *ngIf="!administrador"> <!-- Otra manera de hacer el ELSE, es usando la condición negando algo o valor contrario al IF -->
+				<strong><h3>Utilizando un ELSE corriente</h3></strong>
+				<p>NO ERES el administrador de la webApp</p>
+			</div>
+
+			<div class="col-md-6">
+				<ng-template #noAdmin> <!-- Se utiliza el  ng-template como una sección que se visualiza si se necesita, se le da el nombre y lo que va a llevar -->
+					<strong><h3>Utilizando el ngTemplate para el ELSE</h3></strong>
+					<p>NO ERES el administrador de la webApp</p>
+				</ng-template>
+			</div>
+			</div>
+			<div class="col-md-12" *ngIf="!administrador">
+				<button (click)="cambiar(true)">Cambiar booleano</button>
+			</div>
+		</div>
+	</div>	
+</div>

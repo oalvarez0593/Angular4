@@ -1,0 +1,55 @@
+<h1>Componente de Carros</h1>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<form #formCarros="ngForm"  class="form-horizontal" (ngSubmit)="Enviar()">
+  				<div class="form-group">
+    				<label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
+    					<div class="col-md-6">
+     						 <input type="text" name="marca" #marca="ngModel" [(ngModel)]="coche.marca" class="form-control" placeholder="Marca" required pattern="a-zA-Z#+">
+    					</div>
+  				</div>
+  				<div class="form-group">
+   				 	<label for="inputPassword3" class="col-sm-2 control-label">Año</label>
+    					<div class="col-md-6">
+      						<input type="text" name="ano" #ano="ngModel" [(ngModel)]="coche.ano" class="form-control" placeholder="Año" required pattern="0-9+">
+    					</div>
+  				</div>
+  				<div class="form-group">
+   				 	<label for="inputPassword3" class="col-sm-2 control-label">Color</label>
+    					<div class="col-md-6">
+      						<input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" class="form-control" placeholder="Color" required pattern="a-zA-Z#+">
+    					</div>
+  				</div>
+  				<div class="form-group">
+    				<div class="col-sm-offset-2 col-md-10">
+      						<button type="submit" class="btn btn-default">Enviar</button>
+    					</div>
+ 					 </div>
+</form>
+		</div>
+		<div class="col-md-4">
+      <h1>Listado de Vehiculos</h1>
+      <ul>
+        <li *ngFor="let coche of coches; let i = index">
+           {{i+1}} - {{coche.marca}} -
+            {{coche.ano}} -
+            {{coche.color}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8">
+      <h1>Listado de Articulos del servicio REST</h1>
+      <ul *ngIf="articulos">
+        <li *ngFor="let articulo of articulos">
+           {{articulo.id}} - {{articulo.title}}
+        </li>
+      </ul>
+      <h3 *ngIf="!articulos">Cargando listado...</h3>
+    </div>
+
+	</div>
+</div>

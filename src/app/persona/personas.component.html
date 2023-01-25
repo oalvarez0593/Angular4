@@ -1,0 +1,57 @@
+<div *ngIf="externo == false">
+	<button (click)="cambiarExterno(true)">Mostrar Trabajador</button>
+	<h3>Objeto persona</h3>
+		<ul>
+			<li>{{persona.nombre}}</li>
+			<li>{{persona.edad}}</li>
+			<li>{{persona.direccion}}</li>
+		</ul>
+</div>
+<hr>
+<div *ngIf="externo == true">
+	<button (click)="cambiarExterno(false)">Mostrar Usuario</button>
+	<h3>Objeto persona 1 del array</h3>
+		<ul>
+			<li>{{personas[0].nombre}}</li>
+			<li>{{personas[0].edad}}</li>
+			<li>{{personas[0].direccion}}</li>
+		</ul>
+<hr>
+	<h3>Objeto persona 2 del array</h3>
+		<ul>
+			<li>{{personas[1].nombre}}</li>
+			<li>{{personas[1].edad}}</li>
+			<li>{{personas[1].direccion}}</li>
+		</ul>
+</div>
+
+<h3>Litados de empleados con la funsión FOR</h3>
+<ul>
+	<li *ngFor="let person of personas; let i = index">
+		Empleado {{i+1}}:
+		<ul>
+			<li>{{person.nombre}}</li>
+			<li>{{person.edad}}</li>
+			<li>{{person.direccion}}</li>
+		</ul>
+		<br/>
+		<br/>
+	</li>
+</ul>
+<hr>
+<h3>Pruebas con ngSwitch y ngStyle</h3>
+<ul [ngSwitch]="color">
+	<li *ngSwitchCase="'red'" [ngStyle]="{'background':color}">El Color es rojo</li>
+	<li *ngSwitchCase="'green'" [ngStyle]="{'background':color}">El Color es verde</li>
+	<li *ngSwitchCase="'yellow'" [ngStyle]="{'background':color}">El Color es amarillo</li>
+</ul>
+<hr>
+<h3>Ejemplo de Data binding</h3>
+<input type="tex" name="txtColor" [(ngModel)]="colorSeleccionado">
+<br>
+<div [class.borde]="colorSeleccionado == 'green'" [ngStyle]="{'background':colorSeleccionado, 'margin-right':'500px', 'padding':'20px', 'width':'200px', 'heigth':'200px', 'float':'right'}">
+	Color Seleccionado es: {{colorSeleccionado}}
+</div>
+<div [ngClass]="{otroDiv: colorSeleccionado == 'pink'}">
+	Omar
+</div>
